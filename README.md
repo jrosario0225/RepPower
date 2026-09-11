@@ -5,6 +5,7 @@ An iOS app that measures how fast you're actually lifting. Put in your AirPods, 
 **Status:** Beta — currently runs through Xcode on my own device. App Store release planned.
 
 ## A set in progress (listen to the speed of each rep) ## 
+(**RepSpeed was the old name)
 https://github.com/user-attachments/assets/3b9328ba-c0f0-481e-a3e0-c75b8b00ae77
 
 ---
