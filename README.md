@@ -1,4 +1,4 @@
-# RepSpeed
+# RepPower
 
 An iOS app that measures how fast you're actually lifting. Put in your AirPods, start a set, and every rep gets a mean concentric velocity in m/s — spoken out loud as you rack it, then charted across the set so you can see exactly where you slowed down.
 
@@ -82,28 +82,11 @@ position += velocity * dt
 
 **Keeping 25 Hz off the main thread.** Motion is delivered to a serial background queue that owns all the integration state; nothing crosses to the main thread except through an explicit dispatch, at 12 Hz rather than per sample. The three live numbers live in their own `LiveReadout` observable, held by the tracker as a plain `let` and not a `@Published` property — if it were published, mutating it would notify every observer of the tracker and drag the whole screen into a redraw on every sample. That was the bug that froze the readout after the first rep.
 
-### Project structure
-
-```
-RepSpeed/
-├── RepSpeedApp.swift          # app entry point
-├── ContentView.swift          # composition only — wires tracker, camera, chart
-├── Models.swift               # Rep and WorkoutSet, shared data shapes
-├── RepTracker.swift           # motion in, reps out: the whole measurement chain
-├── LiveReadout.swift          # the three fast-changing numbers, isolated
-├── CameraRecorder.swift       # per-set video, deliberately audio-free
-├── LiveSectionView.swift      # the only view that redraws mid-lift
-├── RepRowView.swift           # one rep
-├── CompletedSetView.swift     # finished set: chart, reps, video, CSV
-├── RepChartView.swift         # mean velocity per rep
-└── StatusHeaderView.swift     # connection state and toggles
-```
-
 ---
 
 ## Status
 
-RepSpeed is in beta. It lives in Xcode — I build it to my own iPhone and use it in the gym, which is where the tuning constants in `RepTracker.swift` came from. There's no public build yet: no App Store listing, no TestFlight, and nothing to install from here.
+RepPower is in beta. It lives in Xcode — I build it to my own iPhone and use it in the gym, which is where the tuning constants in `RepTracker.swift` came from. There's no public build yet: no App Store listing, no TestFlight, and nothing to install from here.
 
 The plan is an App Store release once the rough edges below are sorted — chiefly saving sets between launches and removing the manual axis-sign step. Until then this README describes what's built and working rather than how to install it.
 
