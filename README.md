@@ -1,11 +1,12 @@
 # RepPower
+(*RepSpeed was the old name seen in video)
 
 An iOS app that measures how fast you're actually lifting. Put in your AirPods, start a set, and every rep gets a mean concentric velocity in m/s — spoken out loud as you rack it, then charted across the set so you can see exactly where you slowed down.
 
 **Status:** Beta — currently runs through Xcode on my own device. App Store release planned.
 
 ## A set in progress (listen to the speed of each rep) ## 
-(**RepSpeed was the old name)
+
 https://github.com/user-attachments/assets/3b9328ba-c0f0-481e-a3e0-c75b8b00ae77
 
 ---
