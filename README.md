@@ -1,7 +1,7 @@
 # RepPower
 (*RepSpeed was the old name seen in video)
 
-An iOS app that measures how fast you're actually lifting. Put in your AirPods, start a set, and every rep gets a mean concentric velocity in m/s — spoken out loud as you rack it, then charted across the set so you can see exactly where you slowed down.
+An iOS app that measures how fast you're actually lifting. Enter the weight, choose a velocity-loss cutoff, put in your AirPods, and start your set. Every rep gets a mean concentric velocity in m/s — spoken out loud as you lift and charted across the set so you can see exactly where you slowed down. When you cross your cutoff, RepPower tells you to rack it.
 
 **Status:** Beta — currently runs through Xcode on my own device. App Store release planned.
 
@@ -31,9 +31,30 @@ Velocity-based training gear exists, but it's a barbell sensor that costs a few 
 
 Each rep produces mean velocity (the metric VBT actually trains off), peak velocity, time under tension, and distance travelled. Mean velocity is read aloud through the AirPods as soon as the rep is confirmed, so the feedback lands between reps instead of after the set.
 
+### Weight for every set
+
+Enter the weight before you begin so the load is recorded alongside the velocity data for that set. Speed is only half of the performance picture; pairing it with load makes sets easier to compare.
+
+### Swipe to delete faulty reps
+
+Headphone sensors occasionally turn a setup movement or adjustment into a rep. Swipe on any rep to delete it, removing bad detections from the set instead of letting sensor noise distort the results.
+
 ### Velocity loss across a set
 
-A finished set gets a bar chart of mean velocity per rep, with a dashed reference line at rep one so the drop-off is visible without reading numbers. Velocity loss — best rep versus worst, the standard fatigue measure — is called out separately, and turns red past 20%.
+A finished set gets a bar chart of mean velocity per rep, with a dashed reference line at rep one so the drop-off is visible without reading numbers. Velocity loss — the percentage drop from the best rep — is called out separately.
+
+Before each set, choose how much velocity you are willing to lose:
+
+| Cutoff | Training intent |
+| --- | --- |
+| 10% | Power |
+| 15% | Strength with low fatigue |
+| 20% | Strength and size |
+| 25–30% | More volume and fatigue |
+
+As soon as a rep crosses the selected cutoff, RepPower says **“Rack it.”** This turns velocity loss into an actionable stopping rule rather than a number you only review after the set.
+
+Lower velocity-loss thresholds generally limit fatigue and better preserve high-velocity performance, while moderate-to-higher thresholds allow more volume and may favor hypertrophy. The exact response varies by exercise and individual, so the presets are practical targets rather than medical or coaching advice. See Jukic et al., [*The Acute and Chronic Effects of Implementing Velocity Loss Thresholds During Resistance Training*](https://doi.org/10.1007/s40279-022-01754-4), *Sports Medicine* (2023).
 
 ### Filming, without losing the voice
 
